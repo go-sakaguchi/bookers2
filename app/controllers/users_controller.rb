@@ -4,8 +4,8 @@ class UsersController < ApplicationController
     @user_name = @user.name
     @user_introduction = @user.introduction
     
-    # @book = Book.new
-    # @books = @user.books
+    @book = Book.new
+    @books = Book.all
   end
 
   def edit
