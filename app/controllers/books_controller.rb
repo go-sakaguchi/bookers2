@@ -11,7 +11,9 @@ class BooksController < ApplicationController
   end
   
   def index
+    @user = User.find(current_user.id)
     @books = Book.all
+    @book_create = Book.new
   end
   
   def edit
@@ -21,12 +23,13 @@ class BooksController < ApplicationController
   def show
     @user = User.find(current_user.id)
     @book = Book.find(params[:id])
+    @book_create = Book.new
   end
   
   def destroy
     book = Book.find(params[:id])  # データ（レコード）を1件取得
     book.destroy  # データ（レコード）を削除
-    redirect_to book_path  # 投稿一覧画面へリダイレクト  
+    redirect_to books_path  # 投稿一覧画面へリダイレクト  
   end
   
   private
