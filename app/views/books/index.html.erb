@@ -3,6 +3,28 @@
 </div>
 
 <div class="container px-5 px-sm-0">
+  
+  <% if @book_create.errors.any? %>
+    <div id="error_explanation">
+      <% if @book_create.errors.count == 2%>
+        <h2><%= @book_create.errors.count %> errors prohibited this obj from being saved:</h2>
+        <ul>
+        <% @book_create.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      
+      <% elsif @book_create.errors.count == 1%>
+        <h2><%= @book_create.errors.count %> error prohibited this obj from being saved:</h2>
+        <ul>
+        <% @book_create.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
+  
   <div class="row">
     <div class="col-md-3">
       <%= render 'users/user_info', user: @user, book: @book_create%>
