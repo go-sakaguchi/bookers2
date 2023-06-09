@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @book = Book.new
     @books = Book.all
-    # @user_image = User.find(params[:@books])
   end
 
   def edit

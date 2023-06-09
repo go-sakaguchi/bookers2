@@ -18,8 +18,10 @@ class BooksController < ApplicationController
   
   def index
     @user = User.find(current_user.id)
+    @users = User.all
     @books = Book.all
     @book_create = Book.new
+    # @user_image = User.find(params[:@books.user_id])
   end
   
   def show
