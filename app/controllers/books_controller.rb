@@ -32,6 +32,7 @@ class BooksController < ApplicationController
     @book_create = Book.new
     @book_comment_post = BookComment.new
     @book_comments = BookComment.all
+    @book_comment =BookComment.where(book_id: @book.id)
   end
 
   def edit
